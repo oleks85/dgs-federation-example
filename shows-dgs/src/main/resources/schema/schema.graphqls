@@ -1,9 +1,12 @@
+extend schema @link(url: "https://specs.apollo.dev/federation/v2.0", import: [{ name: "FieldSet", as: "_FieldSet"}, "@key"])
+
 type Query {
+    show(id: String): Show
     shows(titleFilter: String): [Show]
 }
 
 type Show @key(fields: "id") {
-    id: ID
+    id: ID!
     title: String
     releaseYear: Int
 }

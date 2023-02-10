@@ -11,7 +11,7 @@ import com.netflix.graphql.dgs.DgsEntityFetcher;
 import java.util.*;
 import java.util.stream.Collectors;
 
-@DgsComponent
+//@DgsComponent
 public class ReviewsDatafetcher {
 
     Map<String, List<Review>> reviews = new HashMap<>();
@@ -29,14 +29,16 @@ public class ReviewsDatafetcher {
         reviews.put("2", review2);
     }
 
-    @DgsEntityFetcher(name = "Show")
-    public Show movie(Map<String, Object> values) {
-        return new Show((String) values.get("id"), null);
-    }
+//    @DgsEntityFetcher(name = "Show")
+//    public Show movie(Map<String, Object> values) {
+//        return new Show((String) values.get("id"), null);
+//    }
 
-    @DgsData(parentType = "Show", field = "reviews")
-    public List<Review> reviewsFetcher(DgsDataFetchingEnvironment dataFetchingEnvironment)  {
-        Show show = dataFetchingEnvironment.getSource();
-        return reviews.get(show.getId());
-    }
+//    @DgsData(parentType = "Show", field = "reviews")
+//    public List<Review> reviewsFetcher(DgsDataFetchingEnvironment dataFetchingEnvironment)  {
+//        Show show = dataFetchingEnvironment.getSource();
+//        return reviews.get(show.getId());
+//    }
+
+
 }

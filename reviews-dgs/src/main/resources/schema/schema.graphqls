@@ -1,8 +1,26 @@
-type Show @key(fields: "id") @extends {
-    id: ID @external
-    reviews: [Review]
+extend schema @link(url: "https://specs.apollo.dev/federation/v2.0", import: [{ name: "FieldSet", as: "_FieldSet"}, "@key"])
+
+type Query {
+    director(id: String): Director
+    directors(name: String): [Director]
+}
+
+#type Show @key(fields: "id") @extends {
+#    id: ID @external
+#    reviews: [Review]
+#}
+
+type Show @key(fields: "id", resolvable: false) {
+    id: ID!
 }
 
 type Review {
     starRating: Int
 }
+
+type Director @key(fields: "id") {
+    id: ID!
+    name: String!
+    shows: [Show]
+}
+

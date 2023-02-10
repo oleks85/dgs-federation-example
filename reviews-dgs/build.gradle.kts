@@ -16,23 +16,24 @@
 
 
 plugins {
-	id("org.springframework.boot") version "2.6.7"
-	id("io.spring.dependency-management") version "1.0.12.RELEASE"
-	kotlin("plugin.spring") version "1.6.21"
 	id("java")
-	id("com.netflix.dgs.codegen") version "5.5.0"
+	id("org.springframework.boot") version "3.0.0"
+	id("io.spring.dependency-management") version "1.1.0"
+	id("com.netflix.dgs.codegen") version "latest.release"
+	kotlin("plugin.spring") version "1.6.21"
+
 }
 
 group = "com.example"
 version = "0.0.1-SNAPSHOT"
-java.sourceCompatibility = JavaVersion.VERSION_11
+java.sourceCompatibility = JavaVersion.VERSION_19
 
 repositories {
 	mavenCentral()
 }
 
 dependencies {
-	implementation(platform("com.netflix.graphql.dgs:graphql-dgs-platform-dependencies:5.4.3"))
+	implementation(platform("com.netflix.graphql.dgs:graphql-dgs-platform-dependencies:latest.release"))
 	implementation("com.netflix.graphql.dgs:graphql-dgs-spring-boot-starter")
 
 	implementation("org.springframework.boot:spring-boot-starter-web")
